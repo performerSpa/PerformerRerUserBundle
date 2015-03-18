@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="performer_rer_user.service" class="%performer_rer_user.soap_service_class%" public="false">
+            <argument>%performer_rer_user.soap_app_id%</argument>
+            <argument>%performer_rer_user.soap_salt%</argument>
+            <argument type="service" id="performer_rer_user.soap_hash"/>
+            <argument type="service" id="performer_rer_user.soap_auth"/>
+        </service>
+
+        <service id="performer_rer_user.soap_auth" class="SoapClient" public="false" lazy="true">
+            <argument>%performer_rer_user.soap_auth_wsdl%</argument>
+            <argument type="collection">
+                <argument key="trace">%kernel.debug%</argument>
+            </argument>
+        </service>
+
+        <service id="performer_rer_user.soap_hash" class="SoapClient" public="false" lazy="true">
+            <argument>%performer_rer_user.soap_hash_wsdl%</argument>
+            <argument type="collection">
+                <argument key="trace">%kernel.debug%</argument>
+            </argument>
+        </service>
+
+    </services>
+
+</container>

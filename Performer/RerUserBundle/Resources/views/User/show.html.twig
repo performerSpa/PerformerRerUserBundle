@@ -1,0 +1,76 @@
+{% extends performer_rer_user_layout %}
+
+{% block title %}Utente - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Utente</h1>
+
+    <table class="table table-hover record_properties">
+        <tbody>
+            <tr>
+                <th scope="row">Id</th>
+                <td>{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Nome utente</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Dominio</th>
+                <td>{{ user.domain }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Ruoli</th>
+                <td>{{ user.rolesWithLabel }}</td>
+            </tr>
+            <tr>
+                <th scope="row">Attivo</th>
+                <td>{% if user.isActive %}<i class="fa fa-check"></i>{% endif %}</td>
+            </tr>
+            <tr>
+                <th scope="row">Ultimo accesso</th>
+                <td>{% if user.lastLogin %}{{ user.lastLogin|date('d/m/Y H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form id="delete" action="{{ path('user_delete', {id: user.id}) }}" method="post">
+        {{ form_widget(delete_form) }}
+
+        <div class="btn-group record_actions">
+            <a class="btn btn-info" href="{{ path('user') }}">
+                <i class="fa fa-list"></i> {{ 'Back to the list'|trans({}, 'admin') }}
+            </a>
+
+            <a class="btn btn-primary" href="{{ path('user_edit', {id: user.id}) }}">
+                <i class="fa fa-edit"></i> {{ 'Edit'|trans({}, 'admin') }}
+            </a>
+
+            <button class="btn btn-danger" type="submit">
+                <i class="fa fa-trash-o"></i> {{ 'Delete'|trans({}, 'admin') }}
+            </button>
+         </div>
+
+        <input name="modal" type="hidden" value="0">
+    </form>
+
+    <div id="delete_confirm" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h3>{{ 'Confirm delete'|trans({}, 'admin') }}</h3>
+                </div>
+                <div class="modal-body">
+                    <p>{{ 'You are about to delete an item'|trans({}, 'admin') }}, {{ 'this procedure is irreversible'|trans({}, 'admin') }}.</p>
+                    <p>{{ 'Do you want to proceed?'|trans({}, 'admin') }}</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-danger">{{ 'Yes'|trans({}, 'admin') }}</button>
+                    <button class="btn btn-default" data-dismiss="modal">{{ 'No'|trans({}, 'admin') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

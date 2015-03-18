@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+
+        <service id="performer_rer_user.twig_extension" class="Performer\RerUserBundle\Twig\BeelabUserTwigExtension"
+                public="false">
+            <argument>%performer_rer_user.layout%</argument>
+            <argument>%performer_rer_user.route%</argument>
+            <tag name="twig.extension" />
+        </service>
+
+        <service id="performer_rer_user.light_manager" class="%performer_rer_user.light_user_manager_class%">
+            <argument>%performer_rer_user.user_class%</argument>
+            <argument type="service" id="doctrine.orm.entity_manager" />
+        </service>
+
+        <service id="performer_rer_user.manager" class="%performer_rer_user.user_manager_class%">
+            <argument>%performer_rer_user.user_class%</argument>
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service" id="security.context" />
+            <argument type="service" id="knp_paginator" />
+            <argument type="service" id="event_dispatcher" />
+        </service>
+
+        <service id="performer_rer_user.security.authentication.provider"
+                class="Performer\RerUserBundle\Security\Authentication\Provider\RerUserAuthenticationProvider"
+                public="false">
+            <argument /> <!-- Fornitore di utenti (impostato da RerUserFactory) -->
+            <argument type="service" id="performer_rer_user.service"/>
+        </service>
+
+    </services>
+
+</container>

@@ -1,0 +1,20 @@
+{% extends performer_rer_user_layout %}
+
+{% block title %}Nuovo utente - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Nuovo utente</h1>
+
+    <form action="{{ path('user_new') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button class="btn btn-primary" type="submit">{{ 'Create'|trans({}, 'admin') }}</button>
+        </p>
+    </form>
+
+    <div class="btn-group record_actions">
+        <a class="btn btn-info" href="{{ path('user') }}">
+            <i class="fa fa-list"></i> {{ 'Back to the list'|trans({}, 'admin') }}
+        </a>
+    </div>
+{% endblock %}

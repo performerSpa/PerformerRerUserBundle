@@ -1,0 +1,32 @@
+{% extends '::layout.html.twig' %}
+
+{% block title %}Login - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h1>Login</h1>
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% endif %}
+
+    <form id="login" action="{{ path("login_check") }}" method="post" role="form">
+        <label for="username">Utente</label>
+        <div class="form-group input-group">
+            <input id="username" type="text" name="_username" required="required" placeholder="username" class="form-control" />
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        </div>
+        <label for="password">Password</label>
+        <div class="form-group input-group">
+            <input type="password" id="password" name="_password" required="required" placeholder="password" class="form-control" />
+            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+        </div>
+        <label for="domain">Dominio</label>
+        <div class="form-group input-group">
+            <input type="text" id="domain" name="_domain" required="required" placeholder="dominio" class="form-control" />
+            <span class="input-group-addon"><i class="fa fa-globe"></i></span>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary"><i class="fa fa-sign-in"></i> Login</button>
+        </div>
+    </form>
+{% endblock %}
