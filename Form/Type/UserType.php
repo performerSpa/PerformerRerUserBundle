@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * This class is copied and adapted from BeelabUserBundle
+ * https://github.com/Bee-Lab/BeelabUserBundle
+ */
+
 namespace Performer\RerUserBundle\Form\Type;
 
 use Performer\RerUserBundle\Entity\User;
@@ -48,6 +53,6 @@ class UserType extends AbstractType
      */
     public function getName()
     {
-        return 'utente';
+        return 'rer_user';
     }
 }

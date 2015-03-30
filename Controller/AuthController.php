@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * This class is copied and adapted from BeelabUserBundle
+ * https://github.com/Bee-Lab/BeelabUserBundle
+ */
+
 namespace Performer\RerUserBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -10,6 +15,9 @@ use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\Security\Core\SecurityContext;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Auth controller
+ */
 class AuthController extends Controller
 {
     /**

@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * This class is copied and adapted from BeelabUserBundle
+ * https://github.com/Bee-Lab/BeelabUserBundle
+ */
+
 namespace Performer\RerUserBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -54,8 +59,8 @@ class UserController extends Controller
     public function newAction(Request $request)
     {
         $user = $this->get('performer_rer_user.manager')->getInstance();
-        $form = $this->createForm('utente', $user, array('validation_groups' => array('create')));
-        if ($request->isMethod('post') && $form->handleRequest($request)->isValid()) {
+        $form = $this->createForm('rer_user', $user, array('validation_groups' => array('create')));
+        if ($form->handleRequest($request)->isValid()) {
             $this->get('performer_rer_user.manager')->create($user);
 
             return $this->redirect($this->generateUrl('user_show', array('id' => $user->getId())));
@@ -76,8 +81,8 @@ class UserController extends Controller
     public function editAction($id, Request $request)
     {
         $user = $this->get('performer_rer_user.manager')->get($id);
-        $editForm = $this->createForm('utente', $user, array('validation_groups' => array('update')));
-        if ($request->isMethod('post') && $editForm->handleRequest($request)->isValid()) {
+        $editForm = $this->createForm('rer_user', $user, array('validation_groups' => array('update')));
+        if ($editForm->handleRequest($request)->isValid()) {
             $this->get('performer_rer_user.manager')->update($user);
 
             return $this->redirect($this->generateUrl('user_show', array('id' => $user->getId())));

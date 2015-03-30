@@ -52,7 +52,7 @@ class Configuration implements ConfigurationInterface
                             ->cannotBeEmpty()
                             ->defaultValue('Performer\RerUserBundle\Security\Soap\Service')
                         ->end()
-                        ->scalarNode('id_applicazione')
+                        ->scalarNode('app_id')
                             ->cannotBeEmpty()
                         ->end()
                         ->scalarNode('salt')

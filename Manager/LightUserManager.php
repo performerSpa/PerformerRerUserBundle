@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * This class is copied and adapted from BeelabUserBundle
+ * https://github.com/Bee-Lab/BeelabUserBundle
+ */
+
 namespace Performer\RerUserBundle\Manager;
 
 use Doctrine\Common\Persistence\ObjectManager;

@@ -29,7 +29,7 @@ class PerformerRerUserExtension extends Extension
         $container->setParameter('performer_rer_user.route', $config['route']);
         $container->setParameter('performer_rer_user.layout', $config['layout']);
         $container->setParameter('performer_rer_user.soap_service_class', $config['soap']['service_class']);
-        $container->setParameter('performer_rer_user.soap_app_id', $config['soap']['id_applicazione']);
+        $container->setParameter('performer_rer_user.soap_app_id', $config['soap']['app_id']);
         $container->setParameter('performer_rer_user.soap_salt', $config['soap']['salt']);
         $container->setParameter('performer_rer_user.soap_hash_wsdl', $config['soap']['hash_wsdl']);
         $container->setParameter('performer_rer_user.soap_auth_wsdl', $config['soap']['auth_wsdl']);
