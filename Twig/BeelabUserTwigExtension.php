@@ -32,10 +32,10 @@ class BeelabUserTwigExtension extends Twig_Extension
      */
     public function getGlobals()
     {
-        return array(
+        return [
             'performer_rer_user_layout' => $this->layout,
             'performer_rer_user_route'  => $this->route,
-        );
+        ];
     }
 
     /**

@@ -33,7 +33,7 @@ class PerformerRerUserExtensionTest extends PHPUnit_Framework_TestCase
         $extension = new PerformerRerUserExtension();
         $configs = [
             ['user_class' => 'foo'],
-            ['soap' => ['id_applicazione' => 'bar', 'salt' => 'ss', 'hash_wsdl' => 'ww', 'auth_wsdl' => 'zz']],
+            ['soap' => ['app_id' => 'bar', 'salt' => 'ss', 'hash_wsdl' => 'ww', 'auth_wsdl' => 'zz']],
         ];
         $extension->load($configs, $container);
     }

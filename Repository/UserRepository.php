@@ -20,7 +20,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
             ->where('u.username = :username')
             ->setParameter('username', $username)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getOneOrNullResult()
         ;
         if (empty($user)) {
             throw new UsernameNotFoundException(sprintf('User "%s" not found', $username));

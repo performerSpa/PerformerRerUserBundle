@@ -19,16 +19,16 @@ class SoapServiceStub extends Service
      */
     public function login($username, $password, $dominio)
     {
-        if(in_array($username, ['sambri.daniele', 'fornaciari_n', 'cova.massimo'])){
+        if (in_array($username, ['sambri.daniele', 'fornaciari_n', 'cova.massimo'])) {
             return 'Riuscito';
         }
-        if($username == 'tirer_lettura' && $password == 'tirer_lettura' && $dominio == 'prova'){
+        if ($username == 'tirer_lettura' && $password == 'tirer_lettura' && $dominio == 'prova') {
             return 'Riuscito';
         }
-        if($username == 'tirer_scrittura' && $password == 'tirer_scrittura' && $dominio == 'prova'){
+        if ($username == 'tirer_scrittura' && $password == 'tirer_scrittura' && $dominio == 'prova') {
             return 'Riuscito';
         }
-        if($username == 'tirer_power_user' && $password == 'tirer_power_user' && $dominio == 'prova'){
+        if ($username == 'tirer_power_user' && $password == 'tirer_power_user' && $dominio == 'prova') {
             return 'Riuscito';
         }
         if ($username == 'pluto' && $password == 'paperopoli' && $dominio == 'prova') {
